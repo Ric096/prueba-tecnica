@@ -4,7 +4,7 @@ import axios from "axios"
 type ErrorFetch = Error | null
 
 interface Params<T> {
-  data: T | null;
+  data: T[] | null;
   error: ErrorFetch;
   loading: boolean;
 }
@@ -13,7 +13,7 @@ interface Params<T> {
 
 export const useFetch = <T>(url: string): Params<T> => {
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<ErrorFetch>(null)
 
