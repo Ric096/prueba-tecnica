@@ -1,0 +1,5 @@
+export * from './Navbar/Navbar'
+export * from './Footer/Footer'
+export * from './ProductPage/ProductPage'
+export * from './Product/Product'
+export * from './Dashboard/Dashboard'
