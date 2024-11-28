@@ -1,53 +1,44 @@
 // import { useEffect } from 'react'
 import './App.css'
 import { useFetch } from './hooks/useFetch'
+import { Navbar, Footer, Dashboard } from './components'
+import { Data } from './model'
 
 
-const URL = 'https://fakestoreapi.com/productss'
+const URL = 'https://fakestoreapi.com/products'
 
 function App() {
 
-  const {data, loading, error} = useFetch(URL)
+  const {data, loading, error} = useFetch<Data>(URL)
 
-  console.log(
-    {
-      'Esta es la data':data,
-      'Este es el estado de cargando':loading,
-      'Este es el error':error
-    }
-  )
+  console.log(data, loading)
 
   return (
-    <>
-      <h2>Prueba Técnica Girolab</h2>
-      {
-        error && 
-        <p>
-          {error.message}
-        </p>
-      }
-    </>
+    <main className="flex flex-col items-center justify-center h-100vh">
+      {/* <h2>Prueba Técnica Girolab</h2> */}
+      
+        <Navbar />
+
+        {
+          data && 
+          <p>
+            se han encontrado los productos
+          </p>
+
+        }
+        {/* <ProductPage /> */}
+        <Dashboard />
+        {
+          error && 
+          <p>
+            error
+          </p>
+        }
+
+
+        <Footer />
+    </main>
   )
-
-  // if(error) { 
-  //   return (
-  //     <div>
-  //       <p>Ha ocurrido el siguiente error:</p>
-  //       <p> {error?.message} </p>
-  //     </div>
-  //   )
-  // }
-
-  // if(data) { 
-  //   return (
-  //     <div>
-  //       {JSON.stringify(data)}
-  //     </div>
-  //   )
-  // }
-
-  
-
 
 }
 
