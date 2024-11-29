@@ -1,4 +1,4 @@
-# 🛍️ Dashboard de Productos
+# 🛒 Dashboard de Productos
 
 Este proyecto es un dashboard para visualizar, filtrar y ordenar productos. Permite realizar búsquedas, ordenar los productos por precio, y filtrar por categorías. Está construido con React y utiliza un custom hook para realizar fetch de los datos.
 
@@ -28,10 +28,9 @@ Sigue los pasos a continuación para configurar el proyecto en tu máquina local
 
 ### 1. Clona el repositorio
 - HTTPS
-```bash
-git clone https://github.com/Ric096/prueba-tecnica.git
-
-```
+  ```bash
+  git clone https://github.com/Ric096/prueba-tecnica.git
+  ```
 - GH CLI
   ```bash
   gh repo clone Ric096/prueba-tecnica
@@ -44,4 +43,5 @@ Luego inicia el servidor de desarrollo con el comando:
   ```bash
     npm run dev
   ```
+---
   
