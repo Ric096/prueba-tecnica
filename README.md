@@ -36,11 +36,11 @@ git clone https://github.com/Ric096/prueba-tecnica.git
   ```bash
   gh repo clone Ric096/prueba-tecnica
   ```
-  ```bash
-    cd prueba-tecnica
-    npm install 
-  ```
-  Luego inicia el servidor de desarrollo con el comando:
+```bash
+  cd prueba-tecnica
+  npm install 
+```
+Luego inicia el servidor de desarrollo con el comando:
   ```bash
     npm run dev
   ```
