@@ -1,27 +1,46 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
+import { NavLink, useParams } from "react-router-dom";
+import { useFetch } from "../../hooks";
+import { Data } from "../../model";
+
+const PRODUCT_URL = "https://fakestoreapi.com/products/";
 
 export const ProductPage = (): ReactNode => {
+  const { id } = useParams();
+
+  const { data, loading, error } = useFetch<Data>(`${PRODUCT_URL}${id}`);
+
+  // console.log(data) data.
+
+  if (error) {
+    return <div>Error</div>;
+  }
+
+  if (loading) {
+    return <div>Loading</div>;
+  }
+
   return (
-    <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+    <section className="py-8 bg-white md:py-16 antialiased sm:mt-40">
+      <NavLink
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        to="/home"
+      >
+        Volver
+      </NavLink>
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
-          <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
-            <img className="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="" />
-            <img className="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="" />
+          <div className="shrink-0 w-80 h-80 mx-auto">
+            <img className="w-full h-full aspcet-[4/3] object-contain" src={data?.image} alt={data?.title} />
           </div>
 
           <div className="mt-6 sm:mt-8 lg:mt-0">
-            <h1
-              className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"
-            >
-              Apple iMac 24" All-In-One Computer, Apple M1, 8GB RAM, 256GB SSD,
-              Mac OS, Pink
+            <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl">
+              {data?.title}
             </h1>
             <div className="mt-4 sm:items-center sm:gap-4 sm:flex">
-              <p
-                className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
-              >
-                $1,249.99
+              <p className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                $ {data?.price}
               </p>
 
               <div className="flex items-center gap-2 mt-2 sm:mt-0">
@@ -92,16 +111,14 @@ export const ProductPage = (): ReactNode => {
                     />
                   </svg>
                 </div> */}
-                <p
-                  className="text-sm font-medium leading-none text-gray-500 dark:text-gray-400"
-                >
-                  (5.0)
+                <p className="text-sm font-medium leading-none text-gray-500">
+                  ({data?.rating.rate})
                 </p>
                 <a
                   href="#"
-                  className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline dark:text-white"
+                  className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline"
                 >
-                  345 Reviews
+                  {data?.rating.count} Reviews
                 </a>
               </div>
             </div>
@@ -136,7 +153,7 @@ export const ProductPage = (): ReactNode => {
               <a
                 href="#"
                 title=""
-                className="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+                className="text-white mt-4 sm:mt-0 bg-gray-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
                 role="button"
               >
                 <svg
@@ -156,7 +173,6 @@ export const ProductPage = (): ReactNode => {
                     d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
                   />
                 </svg>
-
                 Add to cart
               </a>
             </div>
@@ -164,22 +180,11 @@ export const ProductPage = (): ReactNode => {
             <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
             <p className="mb-6 text-gray-500 dark:text-gray-400">
-              Studio quality three mic array for crystal clear calls and voice
-              recordings. Six-speaker sound system for a remarkably robust and
-              high-quality audio experience. Up to 256GB of ultrafast SSD storage.
-            </p>
-
-            <p className="text-gray-500 dark:text-gray-400">
-              Two Thunderbolt USB 4 ports and up to two USB 3 ports. Ultrafast
-              Wi-Fi 6 and Bluetooth 5.0 wireless. Color matched Magic Mouse with
-              Magic Keyboard or Magic Keyboard with Touch ID.
+              {data?.description}
             </p>
           </div>
         </div>
       </div>
     </section>
-
-  )
-
-}
-
+  );
+};

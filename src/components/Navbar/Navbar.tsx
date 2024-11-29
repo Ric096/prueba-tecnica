@@ -1,14 +1,14 @@
 export const Navbar = () => {
 
   return(
-    <div className="w-10/12 mx-auto box-border p-2 border-2 bg-blue-200 h-auto flex justify-between">
-      <p className="text-red-600">E-commerce</p>
+    <div className="w-11/12 absolute items-center justify-center top-0 mx-auto text-center box-border p-2 bg-gray-100 h-14 flex xs:hidden">
+      <p className="text-gray-800 text-xl text-center">Prueba Técnica E-commerce</p> 
       {/* <div > */}
-        <ul className="mx-2 flex gap-10 w-30 ">
+        {/* <ul className="mx-2 flex gap-10 w-30 ">
           <li>Home</li>
           <li>Products</li>
           <li>Contact</li>
-        </ul>
+        </ul> */}
       {/* </div> */}
     </div>
   )
