@@ -1,11 +1,9 @@
-// import { MouseEventHandler } from "react";
 import { useFetch } from "../../hooks";
 
 interface Props {
   isOpen: boolean;
   handleCategory: Function;
   onClose: Function
-  // closeModal: MouseEventHandler;
 }
 
 const URL = "https://fakestoreapi.com/products/categories";

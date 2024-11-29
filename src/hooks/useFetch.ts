@@ -9,8 +9,6 @@ interface Params<T> {
   loading: boolean;
 }
 
-// const OK = 200
-
 export const useFetch = <T>(url: string): Params<T> => {
 
   const [data, setData] = useState(null)
@@ -25,18 +23,18 @@ export const useFetch = <T>(url: string): Params<T> => {
     const fetchData = async () => {
       try{
         const response = await axios.get(url)
-        console.log(response)
-        // if(!response.ok){
-        //   throw new Error('Something went wrong')
-        // }
+
         const result = await response.data
+
         setData(result)
       } catch (error) {
+
         setError(error as ErrorFetch)
       }
     }
 
     fetchData()
+    
     setLoading(false)
 
     return () => {controller.abort()}
