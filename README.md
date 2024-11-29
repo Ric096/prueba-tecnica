@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# 🛍️ Dashboard de Productos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un dashboard para visualizar, filtrar y ordenar productos. Permite realizar búsquedas, ordenar los productos por precio, y filtrar por categorías. Está construido con React y utiliza un custom hook para realizar fetch de los datos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- Visualización de productos en una interfaz interactiva.
+- Ordenar productos por precio de **menor a mayor** o **mayor a menor**.
+- Buscar productos por nombre.
+- Filtrar productos por categorías a través de un modal.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Tecnologías utilizadas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React**: Biblioteca para construir la interfaz de usuario.
+- **TypeScript**: Para tipado estático y mejor mantenimiento del código.
+- **CSS/Tailwind**: Para estilos y diseño.
+- **Custom Hooks**: Para gestionar el fetch de datos y otros estados.
+
+---
+
+## 🔧 Instalación y configuración
+
+Sigue los pasos a continuación para configurar el proyecto en tu máquina local:
+
+### 1. Clona el repositorio
+- HTTPS
+```bash
+git clone https://github.com/Ric096/prueba-tecnica.git
+
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- GH CLI
+  ```bash
+  gh repo clone Ric096/prueba-tecnica
+  ```
+  ```bash
+    cd prueba-tecnica
+    npm install 
+  ```
+  Luego inicia el servidor de desarrollo con el comando:
+  ```bash
+    npm run dev
+  ```
+  
